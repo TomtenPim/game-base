@@ -4,7 +4,7 @@ export default class Player {
   constructor(game) {
     this.game = game
     this.width = 32
-    this.height = 64
+    this.height = 32
     this.x = this.game.width / 2 - this.width / 2
     this.y = this.game.height / 2 - this.height / 2
 
@@ -14,12 +14,13 @@ export default class Player {
     this.speedY = 0
     this.maxSpeed = 6
 
-    this.maxAmmo = 20
-    this.ammo = 20
+    this.maxAmmo = 2
+    this.ammo = 2
     this.ammoTimer = 0
-    this.ammoInterval = 500
+    this.ammoInterval = 2000
 
     this.lives = 10
+    this.dashing = false
   }
 
   update(deltaTime) {
@@ -49,12 +50,23 @@ export default class Player {
       this.speedY = 0
     }
 
+    if (this.game.keys.includes(' ')) {
+      this.dashing = true
+    } else {
+      this.dashing = false
+    }
+
+
+
     this.y += this.speedY
     this.x += this.speedX
 
     if (this.ammoTimer > this.ammoInterval && this.ammo < this.maxAmmo) {
       this.ammoTimer = 0
       this.ammo++
+      if (this.ammo < this.maxAmmo) {
+        this.ammo++
+      }
     } else {
       this.ammoTimer += deltaTime
     }
@@ -92,25 +104,36 @@ export default class Player {
     })
   }
 
-  shoot(mouseX, mouseY) {
+  shoot(mouseX, mouseY, spell, spread, cost) {
     // get angle between player and mouse
+
     const angle = Math.atan2(
       mouseY - (this.y + this.height / 2),
       mouseX - (this.x + this.width / 2)
     )
-
     if (this.ammo > 0) {
-      this.ammo--
-      this.projectiles.push(
-        new Projectile(
-          this.game,
-          this.x + this.width / 2,
-          this.y + this.height / 2,
-          angle
+      this.ammo -= cost
+
+      for (let i = 0; i < spell; i++) {
+        console.log(spell)
+        console.log(i)
+
+        this.projectiles.push(
+          new Projectile(
+            this.game,
+            this.x + this.width / 2,
+            this.y + this.height / 2,
+            (angle + (Math.random() - 0.5) * spread)
+          )
         )
-      )
+      }
     } else {
       console.log('out of ammo')
     }
   }
 }
+
+/*
+
+ + this.projectiles.width / 2
+*/
