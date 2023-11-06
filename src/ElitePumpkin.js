@@ -1,19 +1,19 @@
 import Enemy from './Enemy.js'
-import Sprite from './assets/peasant.png'
+import Sprite from './assets/knight.png'
 
-export default class Pumpkin extends Enemy {
+export default class ElitePumpkin extends Enemy {
   constructor(game, x, y) {
     super(game)
     this.width = 32
     this.height = 32
     this.x = x
     this.y = y
-    this.speed = 2
-    this.lives = Math.floor(Math.random() * 3) + 1
-    this.color = 'orange'
+    this.speed = 8
+    this.lives = Math.floor(Math.random() * 3) + 7
+    this.color = 'blue'
+    this.type = 'elitePumpkin'
     this.sprite = new Image()
     this.sprite.src = Sprite
-    this.type = 'pumpkin'
   }
 
   update(player) {

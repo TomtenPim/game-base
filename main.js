@@ -6,4 +6,9 @@ document.querySelector('#app').innerHTML = `
   <canvas id="canvas1"></canvas>
 `
 
+document.addEventListener('keydown', function(e){
+  if(e.key == 'r')
+    window.location.reload();
+})
+
 setup(document.querySelector('#canvas1'))

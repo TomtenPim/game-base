@@ -5,11 +5,15 @@ export function setup(canvas) {
   canvas.width = 1708
   canvas.height = 960
 
+
+
   const game = new Game(
     canvas.width,
     canvas.height,
     canvas.getBoundingClientRect()
   )
+
+
   let lastTime = 0
 
   const animate = (timeStamp) => {

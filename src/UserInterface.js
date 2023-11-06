@@ -17,7 +17,9 @@ export default class UserInterface {
     context.font = `${this.fontSize}px ${this.fontFamily}`
     context.fillText(`Lives: ${this.game.player.lives}`, 20, 30)
     context.fillText(`Ammo: ${this.game.player.ammo}`, 20, 60)
-    context.fillText(`Time: ${(this.game.gameTime * 0.001).toFixed(1)}`, 20, 90)
+    context.fillText(`Mist: ${this.game.player.mistMeter /10}`, 20, 90)
+    context.fillText(`Time: ${(this.game.gameTime * 0.001).toFixed(1)}`, 20, 120)
+    context.fillText(`Kills: ${this.game.enemyKilled}`, 20, 150)
 
     if (this.game.gameOver) {
       context.textAlign = 'center'
@@ -26,6 +28,11 @@ export default class UserInterface {
         'Game over',
         this.game.width / 2,
         this.game.height / 2 - 20
+      )
+      context.fillText(
+        'press r to restart',
+        this.game.width / 2,
+        this.game.height / 2 + 40
       )
     }
 

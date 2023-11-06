@@ -4,13 +4,15 @@ export default class InputHandler {
     this.mouseX = 0
     this.mouseY = 0
 
-    this.spell = [1, 5]
-    this.spread = [0, 0.3]
-    this.cost = [0, 1]
+    this.spell = [1, 9]
+    this.spread = [0.1, 0.3]
+    this.cost = [0, 2]
+    this.bulletspeed =[0, 200]
 
-    this.gun = 1
+    this.gun = 0
 
     window.addEventListener('keydown', (event) => {
+      if(!this.game.gameOver) {
       if (
         (event.key === 'ArrowUp' ||
           event.key === 'ArrowDown' ||
@@ -36,7 +38,7 @@ export default class InputHandler {
       if (event.key === '2') {
         this.gun = 1
       }
-    })
+    }})
 
     window.addEventListener('keyup', (event) => {
       if (this.game.keys.indexOf(event.key) > -1) {
@@ -44,7 +46,7 @@ export default class InputHandler {
       }
     })
 
-    window.addEventListener('', (event) => {
+    window.addEventListener(' ', (event) => {
 
     })
 
@@ -54,7 +56,9 @@ export default class InputHandler {
     })
 
     window.addEventListener('mousedown', (event) => {
-      this.game.player.shoot(this.mouseX, this.mouseY, this.spell[this.gun], this.spread[this.gun], this.cost[this.gun])
+      if(!this.game.gameOver || event.key == ' ') {
+      this.game.player.shoot(this.mouseX, this.mouseY, this.spell[this.gun], this.spread[this.gun], this.cost[this.gun], this.gun, this.bulletspeed[this.gun])
+    }
     })
   }
 }
