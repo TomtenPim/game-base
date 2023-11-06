@@ -53,7 +53,7 @@ export default class UserInterface {
       context.fillText(
         'hold spacebar for intangibility',
         this.game.width / 2,
-        this.game.height / 2 + 230
+        this.game.height / 2 + 280
       )
 
     }
