@@ -96,7 +96,7 @@ export default class Game {
       this.player.projectiles.forEach((projectile) => {
         if (this.checkCollision(projectile, enemy)) {
           if (enemy.type === 'candy') {
-            enemy.explode(40)
+            enemy.explode(20)
             this.enemyKilled--
           }
 
