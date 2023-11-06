@@ -33,11 +33,11 @@ export default class Game {
   update(deltaTime) {
     if (!this.gameOver) {
       this.gameTime += deltaTime
-    
-      if (this.enemyTimer > (this.enemyInterval*(Math.pow(0.75, this.enemyKilled/80)))) {
+
+      if (this.enemyTimer > (this.enemyInterval * (Math.pow(0.75, this.enemyKilled / 80)))) {
         if (Math.random() < 0.2) {
-          let x = (Math.random()*this.width)-32
-          let y = (Math.random()*this.height)-32
+          let x = (Math.random() * this.width) - 32
+          let y = (Math.random() * this.height) - 32
           this.enemies.push(new Candy(this, x, y))
         } else {
           let x = Math.random() < 0.5 ? 0 : this.width // spawn on left or right edge
@@ -52,16 +52,16 @@ export default class Game {
             x = Math.random() * this.width // if on bottom edge, randomize x position
           }
 
-          if((Math.random()-this.gameTime* 0.0000001) < 0.15){
-            if((Math.random()-this.gameTime* 0.00000005+0.045) < 0.05){
+          if ((Math.random() - this.gameTime * 0.0000001) < 0.15) {
+            if ((Math.random() - this.gameTime * 0.00000005 + 0.045) < 0.05) {
               this.enemies.push(new EliteSquash(this, x, y))
-            }else if((Math.random()-this.gameTime* 0.0000001+0.05) < 0.20){
+            } else if ((Math.random() - this.gameTime * 0.0000001 + 0.05) < 0.20) {
               this.enemies.push(new ElitePumpkin(this, x, y))
             }
-            else{
+            else {
               this.enemies.push(new Squash(this, x, y))
             }
-          }else{
+          } else {
             this.enemies.push(new Pumpkin(this, x, y))
           }
         }
@@ -69,12 +69,12 @@ export default class Game {
       } else {
         this.enemyTimer += deltaTime
       }
-    
+
 
       this.player.update(deltaTime)
 
       this.enemyProjectiles.forEach((enemyProjectile) => {
-        if (this.checkCollision(enemyProjectile, this.player)){
+        if (this.checkCollision(enemyProjectile, this.player)) {
           this.player.lives--
           enemyProjectile.markedForDeletion = true
         }
@@ -96,13 +96,13 @@ export default class Game {
       this.player.projectiles.forEach((projectile) => {
         if (this.checkCollision(projectile, enemy)) {
           if (enemy.type === 'candy') {
-            enemy.explode(20)
+            enemy.explode(40)
             this.enemyKilled--
           }
-          
+
           enemy.lives -= projectile.damage
 
-          if (enemy.lives < 1){
+          if (enemy.lives < 1) {
             enemy.markedForDeletion = true
             this.enemyKilled++
           }
