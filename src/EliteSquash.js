@@ -1,5 +1,5 @@
 import Enemy from './Enemy.js'
-import EnemyProjectile from './EnemyProjectile'
+import EnemyProjectile from './EnemyProjectile.js'
 import Sprite from './assets/vampirehunter.png'
 
 

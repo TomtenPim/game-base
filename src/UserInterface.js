@@ -27,13 +27,35 @@ export default class UserInterface {
       context.fillText(
         'Game over',
         this.game.width / 2,
-        this.game.height / 2 - 20
+        this.game.height / 2 - 50
       )
       context.fillText(
         'press r to restart',
         this.game.width / 2,
-        this.game.height / 2 + 40
+        this.game.height / 2 + 10
       )
+
+      context.fillText(
+        'w,a,s,d or arrow keys to move',
+        this.game.width / 2,
+        this.game.height / 2 + 130
+      )
+      context.fillText(
+        'click to shoot',
+        this.game.width / 2,
+        this.game.height / 2 + 180
+      )
+      context.fillText(
+        '1 or 2 to swich weapons',
+        this.game.width / 2,
+        this.game.height / 2 + 230
+      )
+      context.fillText(
+        'hold spacebar for intangibility',
+        this.game.width / 2,
+        this.game.height / 2 + 230
+      )
+
     }
 
     // debug

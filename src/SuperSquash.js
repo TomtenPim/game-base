@@ -1,5 +1,5 @@
 import Enemy from './Enemy.js'
-import EnemyProjectile from './EnemyProjectile'
+import EnemyProjectile from './EnemyProjectile.js'
 
 export default class SuperSquash extends Enemy {
   constructor(game, x, y) {

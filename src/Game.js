@@ -53,9 +53,9 @@ export default class Game {
           }
 
           if((Math.random()-this.gameTime* 0.0000001) < 0.15){
-            if((Math.random()-this.gameTime* 0.00000005+0.05) < 0.05){
+            if((Math.random()-this.gameTime* 0.00000005+0.045) < 0.05){
               this.enemies.push(new EliteSquash(this, x, y))
-            }else if((Math.random()-this.gameTime* 0.0000001+0.03) < 0.20){
+            }else if((Math.random()-this.gameTime* 0.0000001+0.05) < 0.20){
               this.enemies.push(new ElitePumpkin(this, x, y))
             }
             else{
