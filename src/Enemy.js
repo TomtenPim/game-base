@@ -12,6 +12,7 @@ export default class Enemy {
     this.type = 'enemy'
 
     this.projectiles = []
+    this.exploding = false
   }
 
   update() {
@@ -49,6 +50,7 @@ export default class Enemy {
   }
 
   explode(bullets) {
+      this.exploding = true
       for(let i = 0; i < bullets; i++){
         let angle = ((Math.random() - 0.5) * 6.3)
         this.game.player.projectiles.push(
