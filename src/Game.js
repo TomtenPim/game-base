@@ -23,8 +23,8 @@ export default class Game {
     this.enemyProjectiles = []
     this.enemyTimer = 0
     this.enemyInterval = 1000
-    this.enemyKilled = 0
-    this.mistMeter = 100
+    this.enemyKilled = =
+      this.mistMeter = 100
 
 
     this.player = new Player(this)
