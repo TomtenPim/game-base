@@ -21,7 +21,7 @@ export default class Game {
     this.gameTime = 0
     this.enemies = []
     this.enemyProjectiles = []
-    this.enemyTimer = 100
+    this.enemyTimer = 0
     this.enemyInterval = 10000
     this.enemyKilled = 0
     this.mistMeter = 100
@@ -52,8 +52,8 @@ export default class Game {
             x = Math.random() * this.width // if on bottom edge, randomize x position
           }
 
-          if ((Math.random() - this.gameTime * 0.0000001-5) < 0.15) {
-            if ((Math.random() - this.gameTime * 0.00000005 - 1.045) < 0.05) {
+          if ((Math.random() - this.gameTime * 0.0000001) < 0.15) {
+            if ((Math.random() - this.gameTime * 0.00000005 + 0.045) < 0.05) {
               this.enemies.push(new EliteSquash(this, x, y))
             } else if ((Math.random() - this.gameTime * 0.0000001 + 0.05) < 0.20) {
               this.enemies.push(new ElitePumpkin(this, x, y))
