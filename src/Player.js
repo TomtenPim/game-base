@@ -28,7 +28,7 @@ export default class Player {
     this.ammoTimer = 0
     this.ammoInterval = 2000
 
-    this.lives = 300
+    this.lives = 3
     this.mistMeter = 1000  
     this.dashing = true
     this.gun = 0
